@@ -3054,11 +3054,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mac/Documents/ProjectDoAn/Sever/DATN_AEQSK27_2024/DATN/DATN.csproj",
+      "projectUniqueName": "/Users/mac/Desktop/DATN/XDHTHTTM1250/BEStrocker/DATN.csproj",
       "projectName": "DATN",
-      "projectPath": "/Users/mac/Documents/ProjectDoAn/Sever/DATN_AEQSK27_2024/DATN/DATN.csproj",
+      "projectPath": "/Users/mac/Desktop/DATN/XDHTHTTM1250/BEStrocker/DATN.csproj",
       "packagesPath": "/Users/mac/.nuget/packages/",
-      "outputPath": "/Users/mac/Documents/ProjectDoAn/Sever/DATN_AEQSK27_2024/DATN/obj/",
+      "outputPath": "/Users/mac/Desktop/DATN/XDHTHTTM1250/BEStrocker/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mac/.nuget/NuGet/NuGet.Config"
