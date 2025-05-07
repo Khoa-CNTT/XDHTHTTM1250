@@ -1,4 +1,9 @@
 import 'package:assistantstroke/controler/profile_controller.dart';
+import 'package:assistantstroke/page/Invitation/home.dart';
+import 'package:assistantstroke/page/devices/home.dart';
+import 'package:assistantstroke/page/home_profile_detail/change_password.dart';
+import 'package:assistantstroke/page/home_profile_detail/editprofilepage.dart';
+import 'package:assistantstroke/page/home_profile_detail/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,8 +34,8 @@ class _HomeProfileState extends State<HomeProfile> {
 
     if (userData != null) {
       setState(() {
-        username = userData['username'] ?? "Không có tên";
-        email = userData['email'] ?? "Không có email";
+        username = userData['patientName'] ?? "Không có tên";
+        // email = userData['email'] ?? "Không có email";
       });
     }
   }
@@ -42,12 +47,13 @@ class _HomeProfileState extends State<HomeProfile> {
   }
 
   final List<Map<String, dynamic>> menuItems = [
-    {"icon": Icons.person, "text": "Profile"},
-    {"icon": Icons.favorite, "text": "More Emergency Phone Number"},
-    {"icon": Icons.lock, "text": "Password Manager"},
-    {"icon": Icons.settings, "text": "Settings"},
-    {"icon": Icons.help, "text": "Help"},
-    {"icon": Icons.logout, "text": "Logout"},
+    {"icon": Icons.person, "text": "Thông Tin Cá Nhân"},
+    {"icon": Icons.favorite, "text": "Người Nhà"},
+    {"icon": Icons.lock, "text": "Quản Lý Mật Khẩu"},
+    {"icon": Icons.device_thermostat, "text": "Thiết Bị"},
+    // {"icon": Icons.settings, "text": "Cài Đặt"},
+    // {"icon": Icons.help, "text": "Tợ Giúp "},
+    {"icon": Icons.logout, "text": "Đăng Xuất"},
   ];
 
   @override
@@ -58,14 +64,14 @@ class _HomeProfileState extends State<HomeProfile> {
         padding: const EdgeInsets.only(top: 60),
         child: Column(
           children: [
-            const Text(
-              "User Information",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.cyan,
-              ),
-            ),
+            // const Text(
+            //   "User Information",
+            //   style: TextStyle(
+            //     fontSize: 24,
+            //     fontWeight: FontWeight.bold,
+            //     color: Colors.cyan,
+            //   ),
+            // ),
             const SizedBox(height: 20),
             _buildUserProfile(),
             const SizedBox(height: 20),
@@ -82,14 +88,15 @@ class _HomeProfileState extends State<HomeProfile> {
         CircleAvatar(
           radius: 40,
           backgroundColor: Colors.transparent,
-          backgroundImage: AssetImage("assets/images/icon/IMG_1616.JPG"),
+          // backgroundImage: AssetImage("assets/images/icon/IMG_1616.JPG"),
+          backgroundImage: AssetImage("assets/images/icon/avatar.jpg"),
         ),
         const SizedBox(height: 10),
         Text(
           username,
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        Text(email, style: const TextStyle(color: Colors.grey)),
+        // Text(email, style: const TextStyle(color: Colors.grey)),
       ],
     );
   }
@@ -100,6 +107,21 @@ class _HomeProfileState extends State<HomeProfile> {
     );
   }
 
+  // Widget _buildMenuItem(Map<String, dynamic> item) {
+  //   return ListTile(
+  //     leading: CircleAvatar(
+  //       backgroundColor: Colors.cyan,
+  //       child: Icon(item["icon"], color: Colors.white),
+  //     ),
+  //     title: Text(item["text"]),
+  //     trailing: const Icon(Icons.arrow_forward_ios, color: Colors.cyan),
+  //     onTap: () {
+  //       if (item["text"] == "Logout") {
+  //         _logout();
+  //       }
+  //     },
+  //   );
+  // }
   Widget _buildMenuItem(Map<String, dynamic> item) {
     return ListTile(
       leading: CircleAvatar(
@@ -108,9 +130,78 @@ class _HomeProfileState extends State<HomeProfile> {
       ),
       title: Text(item["text"]),
       trailing: const Icon(Icons.arrow_forward_ios, color: Colors.cyan),
+      // onTap: () {
+      //   switch (item["text"]) {
+      //     case "Profile":
+      //       Navigator.pushNamed(
+      //         context,
+      //         '/profile',
+      //       ); // ví dụ điều hướng đến trang Profile
+      //       break;
+      //     case "More Emergency Phone Number":
+      //       Navigator.pushNamed(context, '/emergency');
+      //       break;
+      //     case "Password Manager":
+      //       Navigator.pushNamed(context, '/password');
+
+      //       break;
+      //     case "Settings":
+      //       Navigator.pushNamed(context, '/settings');
+      //       break;
+      //     case "Help":
+      //       Navigator.pushNamed(context, '/help');
+      //       break;
+      //     case "Logout":
+      //       _logout();
+      //       break;
+      //     default:
+      //       break;
+      //   }
+      // },
       onTap: () {
-        if (item["text"] == "Logout") {
-          _logout();
+        switch (item["text"]) {
+          case "Thông Tin Cá Nhân":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => EditProfilePage()),
+            );
+            break;
+          case "Người Nhà":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => InvitationPage()),
+            );
+            break;
+          case "Quản Lý Mật Khẩu":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ChangePassword()),
+            );
+            break;
+          case "Thiết Bị":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => DevicesPage()),
+            );
+            break;
+
+          case "Cài Đặt":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SettingsPage()),
+            );
+            break;
+          case "Trợ Giúp":
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ChangePassword()),
+            );
+            break;
+          case "Đăng Xuất":
+            _logout();
+            break;
+          default:
+            break;
         }
       },
     );

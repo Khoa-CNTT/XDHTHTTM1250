@@ -7,6 +7,8 @@
 
 <key>NSLocationAlwaysUsageDescription</key>
 <string>Ứng dụng cần quyền truy cập vị trí để tìm bệnh viện ngay cả khi chạy nền.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>We need access to your camera to scan QR codes</string>
 
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -51,5 +53,13 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+  	<string>Ứng dụng cần dùng Bluetooth để kết nối với thiết bị IoT.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+
 </dict>
 </plist>

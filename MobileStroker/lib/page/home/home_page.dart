@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                       builder: (context) => HomeLogin(),
                     ), // Mở trang mới
                   );
-                  print('Sing Up');
+                  print('Sign Up');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                       builder: (context) => SignUp(),
                     ), // Mở trang mới
                   );
-                  print('Sing Up');
+                  print('Sign Up');
                 },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: const Color.fromARGB(255, 69, 68, 68),
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
                   elevation: 10,
                 ),
                 child: Text(
-                  'Sing Up',
+                  'Sign Up',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ),
